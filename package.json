@@ -1,0 +1,42 @@
+{
+  "name": "qpgen-electron",
+  "version": "1.0.0",
+  "description": "Physics Question Paper Generator",
+  "main": "main.js",
+  "author": "Harish C",
+  "license": "MIT",
+  "scripts": {
+    "start": "electron .",
+    "pack": "electron-builder --dir",
+    "predist": "powershell -NoProfile -ExecutionPolicy Bypass -Command \"Get-Process 'QP Generator' -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue; Get-Process electron -ErrorAction SilentlyContinue | Stop-Process -Force -ErrorAction SilentlyContinue; Start-Sleep -Milliseconds 200\"",
+    "clean": "powershell -NoProfile -Command \"if (Test-Path dist) { Remove-Item -Recurse -Force dist -ErrorAction SilentlyContinue }; if (Test-Path out) { Remove-Item -Recurse -Force out -ErrorAction SilentlyContinue }\"",
+    "dist": "powershell -NoProfile -Command \"& { npm run clean; electron-builder }\""
+  },
+  "dependencies": {
+    "docx": "^8.5.0",
+    "mammoth": "^1.10.0"
+  },
+  "devDependencies": {
+    "electron": "^29.0.0",
+    "electron-builder": "^24.6.0"
+  },
+  "build": {
+    "appId": "com.qpgen.app",
+    "productName": "QP Generator",
+    "directories": {
+      "output": "dist"
+    },
+    "win": {
+      "target": "nsis",
+      "icon": "assets/icon.ico"
+
+    },
+    "nsis": {
+      "oneClick": false,
+      "allowToChangeInstallationDirectory": true,
+      "createDesktopShortcut": true,
+      "createStartMenuShortcut": true,
+      "shortcutName": "QP Generator"
+    }
+  }
+}
