@@ -21,6 +21,7 @@
 ---
 
 ## 📸 Preview
+<img width="1366" height="731" alt="image" src="https://github.com/user-attachments/assets/c8e5ac37-d5bc-4350-89a8-9414c2cba20a" />
 
 <div align="center">
   
@@ -299,3 +300,4 @@ If you find this project helpful for your teaching or educational needs, please 
 *Simplifying question paper creation, one paper at a time.*
 
 </div>
+
